@@ -5,7 +5,7 @@
 之前使用GPU时习惯了使用工具 [`gpustat`](https://github.com/wookayin/gpustat) 查看GPU状态，使用海光的 DCU 设备之后发现并没有类似的工具，于是仿照  [`gpustat`](https://github.com/wookayin/gpustat) 自己写了一个；
 显示效果如下图：
 
-<img src="./docs/dcustat.png" width="50%" alt="dcustat png" align=center />
+<img src="./docs/dcustat.png" width="40%" alt="dcustat png" align=center />
 
 ## 依赖说明
 

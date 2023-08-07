@@ -50,7 +50,9 @@ optional arguments:
   -v, --version         show program's version number and exit
 ```
 
+### 参数 --light 说明
 
+有的显示器渲染结果中部分指标比较暗，如下图左侧所示。此时可以添加上 --light 参数，所有的结果都会以更亮的形式进行显示，如下图右侧所示。
 
 |默认|加--light参数|
 |---|---|
@@ -59,37 +61,21 @@ optional arguments:
 ## 显示内容说明
 
 ```
-machine_name  Mon Dec 20 22:38:59 2021  ascend-dmi version: 2.0.3
-========================================================
-[加速卡ID], 加速卡类型, 功率
-[芯片ID] [DeviceID] Health, 芯片名称 | 温度, AICore, 内存
-========================================================
-
-[1], Atlas 300I-3000, 16.30 W
-[0] [1] OK, Ascend 310 | 51°C,   0 %, 2621 MB / 8192 MB
+sxcs-k8s-master-01  Mon Aug  7  17:35:53 2023
+ ID   温度,   风扇,  AvgPwr / PwrCap,  显存,  Core
+[0] 43.0°C,  0.0%,  20.0W / 450.0W,  0.0%,  0.0%
+[1] 43.0°C,  0.0%,  20.0W / 450.0W,  0.0%,  0.0%
+[2] 43.0°C,  0.0%,  20.0W / 450.0W,  0.0%,  0.0%
+[3] 43.0°C,  0.0%,  20.0W / 450.0W,  0.0%,  0.0%
 ```
 
-* header：第1行为header，可以使用参数 `--no-header` 不展示该信息；展示的信息从左到右依次为机器名称、当前时间、软件 `ascend-dmi/npu-smi` 的版本；
+* header：第1行为header，展示的信息从左到右依次为机器名称、当前时间；
 
-* title：第2~5行为title，可以使用参数 `--no-title` 不展示该信息；title是对后面展示的信息的各字段的说明；
-
-*  `[1], Atlas 300I-3000, 16.30 W`：每个加速卡的信息：
-    * `[1]`：加速卡ID；
-    * `Atlas 300I-3000`：加速卡类型；
-    * `16.30 W`： 加速卡实时功率；
-
-*  `[0] [1] OK, Ascend 310 | 51°C,   0 %, 2621 MB / 8192 MB`：每个芯片的信息：
-    * `[0]`：芯片ID；
-    * `[1]`：DeviceID；
-    * `OK`：芯片健康状态；
-    * `Ascend 310`：芯片名称；
-    * `51°C`：温度；
-    * `0 %`：AICore；
-    * `2621 MB / 8192 MB`：内存；
+* title：第2行为title，title是对后面展示的信息的各字段的说明。"AvgPwr" 列是平均功率，"PwrCap" 列是显卡的功率上限，"显存" 列是当前显存的使用率，"Core" 列是当前计算资源的使用率。
 
 ## Reference
 
-本项目的灵感、排版展示、以及代码的整体结构都是源自 [`gpustat`](https://github.com/wookayin/gpustat)，本项目只是将其工作适配到了华为Atlas设备上；
+本项目的灵感、排版展示、以及代码的整体结构都是源自 [`gpustat`](https://github.com/wookayin/gpustat)，本项目只是将其工作适配到了海光 DCU 设备上；
 
 ## License
 

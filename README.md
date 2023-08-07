@@ -36,7 +36,7 @@ dcustat --watch
 可选参数如下：
 
 ```
-usage: cli.py [-h] [-i [INTERVAL]] [--light] [--debug] [-v]
+usage: dcustat [-h] [-i [INTERVAL]] [--light] [--debug] [-v]
 
 optional arguments:
 

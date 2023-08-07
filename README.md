@@ -54,6 +54,10 @@ optional arguments:
 
 有的显示器渲染结果中部分指标比较暗，如下图左侧所示。此时可以添加上 --light 参数，所有的结果都会以更亮的形式进行显示，如下图右侧所示。
 
+```
+dcustat --watch --light
+```
+
 |默认|加--light参数|
 |---|---|
 |<img src="./docs/dcustat_dark.png" width="100%" align=center />|<img src="./docs/dcustat_light.png" width="100%" align=center />|

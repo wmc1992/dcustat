@@ -8,7 +8,7 @@ import time
 
 from blessed import Terminal
 
-from core import new_query
+from .core import new_query
 from dcustat import __version__
 
 

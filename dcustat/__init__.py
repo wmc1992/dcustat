@@ -2,7 +2,7 @@
 The dcustat module.
 """
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 from .cli import main, print_dcu_stat, loop_dcu_stat
 from .core import DCU, DCUCardCollection

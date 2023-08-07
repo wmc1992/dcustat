@@ -11,7 +11,7 @@ from datetime import datetime
 from blessed import Terminal
 from six.moves import cStringIO as StringIO
 
-from rocm_smi import GetCardStatusWithRocmSmi
+from .rocm_smi import GetCardStatusWithRocmSmi
 
 
 IS_WINDOWS = "windows" in platform.platform().lower()

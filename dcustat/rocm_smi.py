@@ -22,6 +22,16 @@ class GetEntryList:
     ================================================================================
     =================================End of SMI Log=================================
 
+    ==========================System Management Interface ==========================
+    ================================================================================
+    DCU  Temp   AvgPwr   SCLK    MCLK  Fan   Perf    PwrCap  VRAM%  DCU%  
+    0    44.0c  20.0W   1250Mhz 800Mhz 0.0%  manual  450.0W    0%   0%    
+    1    44.0c  19.0W   1250Mhz 800Mhz 0.0%  manual  450.0W    0%   0%    
+    2    44.0c  18.0W   1250Mhz 800Mhz 0.0%  manual  450.0W    0%   0%    
+    3    43.0c  20.0W   1250Mhz 800Mhz 0.0%  manual  450.0W    0%   0%    
+    ================================================================================
+    =================================End of SMI Log=================================
+
     """
 
     # DCU id, Temp, AvgPwr, Fan, Perf, PwrCap, VRAM%, DCU%
@@ -29,6 +39,10 @@ class GetEntryList:
     pattern += r"(\d{1,2})" + r" "  # DCU id
     pattern += r"([\d.]{1,10})c" + r" "  # Temp
     pattern += r"([\d.]{1,10})W" + r" "  # AvgPwr
+
+    pattern += r"(?:\d{1,5}Mhz )?"  # SCLK
+    pattern += r"(?:\d{1,5}Mhz )?"  # MCLK
+
     pattern += r"([\d.]{1,10})%" + r" "  # Fan
     pattern += r"([a-zA-Z]{1,20})" + r" "  # Perf
     pattern += r"([\d.]{1,10})W" + r" "  # PwrCap
@@ -44,7 +58,6 @@ class GetEntryList:
                 match_list.append(self.pattern.search(line).groups())
 
         entry_list = []
-
         for card_id, temp, avg_pwr, fan, _, pwr_cap, varn, dcu_percent in match_list:
             entry = dict()
             entry["DCU"] = card_id
